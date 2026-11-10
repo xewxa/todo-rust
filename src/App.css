@@ -1,0 +1,918 @@
+
+#root {
+  min-height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button {
+  font: inherit;
+}
+
+.app-shell {
+  display: flex;
+  min-height: 100vh;
+  color: #252b36;
+  background: #f8f9fb;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.sidebar {
+  width: 258px;
+  min-width: 258px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 27px 18px 18px;
+  background: #fff;
+  border-right: 1px solid #e9ebef;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 0 9px;
+  margin-bottom: 35px;
+  font-size: 21px;
+  font-weight: 750;
+  letter-spacing: -0.8px;
+}
+
+.brand-icon {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  border-radius: 10px;
+  color: #fff;
+  background: #5967dc;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.brand-accent {
+  color: #5967dc;
+}
+
+.new-task-button,
+.primary-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  border: 0;
+  border-radius: 9px;
+  color: #fff;
+  background: #5967dc;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.new-task-button {
+  width: 100%;
+  height: 43px;
+  justify-content: flex-start;
+  padding: 0 13px;
+  margin-bottom: 34px;
+  font-size: 13px;
+}
+
+.new-task-button:hover,
+.primary-button:hover {
+  background: #4855c5;
+}
+
+.new-task-button:active,
+.primary-button:active {
+  transform: translateY(1px);
+}
+
+.plus-icon {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.shortcut {
+  margin-left: auto;
+  padding: 2px 6px;
+  border: 1px solid #818be7;
+  border-radius: 4px;
+  color: #e1e3ff;
+  font-size: 10px;
+}
+
+.sidebar-label {
+  padding: 0 10px;
+  margin-bottom: 12px;
+  color: #a0a6b2;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.1px;
+}
+
+.navigation {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  height: 41px;
+  padding: 0 11px;
+  border: 0;
+  border-radius: 7px;
+  color: #737b89;
+  background: transparent;
+  text-align: left;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.nav-item:hover {
+  background: #f6f7fb;
+}
+
+.nav-item.active {
+  color: #505ed0;
+  background: #eff0ff;
+  font-weight: 650;
+}
+
+.nav-icon {
+  width: 17px;
+  text-align: center;
+  font-size: 16px;
+}
+
+.nav-count {
+  margin-left: auto;
+  color: #a1a7b3;
+  font-size: 11px;
+}
+
+.sidebar-bottom {
+  margin-top: auto;
+}
+
+.sidebar-divider {
+  height: 1px;
+  margin: 0 0 17px;
+  background: #eceef2;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px;
+}
+
+.avatar {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border-radius: 50%;
+  color: #5967dc;
+  background: #eceeff;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.profile-info {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.profile-name {
+  color: #414855;
+  font-size: 11px;
+  font-weight: 650;
+}
+
+.profile-status {
+  color: #a0a6b2;
+  font-size: 10px;
+}
+
+.profile-menu {
+  color: #8c93a0;
+  font-size: 20px;
+}
+
+.main-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.topbar {
+  display: flex;
+  height: 68px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 42px;
+  border-bottom: 1px solid #e9ebef;
+  background: #fff;
+}
+
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #9ba1ad;
+  font-size: 12px;
+}
+
+.breadcrumbs strong {
+  color: #454c59;
+  font-weight: 600;
+}
+
+.breadcrumb-separator {
+  color: #c6cad1;
+}
+
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.local-badge {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #858d9a;
+  font-size: 11px;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #36b982;
+}
+
+.icon-button {
+  width: 32px;
+  height: 32px;
+  border: 0;
+  border-radius: 7px;
+  color: #9aa1ad;
+  background: transparent;
+  font-size: 17px;
+}
+
+.icon-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.content-area {
+  display: flex;
+  min-height: calc(100vh - 68px);
+  flex-direction: column;
+  padding: 43px 6.5% 22px;
+}
+
+.page-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 39px;
+}
+
+.eyebrow {
+  margin-bottom: 9px;
+  color: #8c94a3;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+}
+
+.page-heading h1 {
+  margin: 0;
+  color: #252b36;
+  font-size: 29px;
+  font-weight: 720;
+  letter-spacing: -1px;
+}
+
+.page-description {
+  margin: 9px 0 0;
+  color: #9299a6;
+  font-size: 13px;
+}
+
+.primary-button {
+  min-height: 39px;
+  padding: 0 15px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.primary-button span {
+  font-size: 17px;
+}
+
+.task-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 13px;
+  border-bottom: 1px solid #e8eaf0;
+}
+
+.task-toolbar-title {
+  color: #454c59;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.task-total {
+  color: #a0a6b2;
+  font-size: 11px;
+}
+
+.empty-state {
+  display: flex;
+  flex: 1;
+  min-height: 330px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 35px 15px 55px;
+  text-align: center;
+}
+
+.empty-illustration {
+  margin-bottom: 22px;
+}
+
+.empty-circle {
+  position: relative;
+  display: grid;
+  width: 112px;
+  height: 112px;
+  place-items: center;
+  border: 1px solid #e5e7fa;
+  border-radius: 50%;
+  background: #f0f1ff;
+}
+
+.empty-checklist {
+  display: flex;
+  width: 43px;
+  flex-direction: column;
+  gap: 9px;
+  padding: 13px 10px;
+  border: 1px solid #d8dcf7;
+  border-radius: 7px;
+  background: #fff;
+  box-shadow: 0 5px 14px #414c9910;
+}
+
+.empty-checklist span {
+  height: 4px;
+  border-radius: 4px;
+  background: #dfe2f7;
+}
+
+.empty-checklist span:first-child {
+  width: 19px;
+  background: #8791e5;
+}
+
+.empty-plus {
+  position: absolute;
+  right: 13px;
+  bottom: 16px;
+  display: grid;
+  width: 27px;
+  height: 27px;
+  place-items: center;
+  border: 3px solid #f0f1ff;
+  border-radius: 50%;
+  color: #fff;
+  background: #6976df;
+  font-size: 17px;
+}
+
+.empty-state h2 {
+  margin: 0 0 9px;
+  color: #3c4350;
+  font-size: 17px;
+  font-weight: 650;
+}
+
+.empty-state p {
+  margin: 0;
+  color: #9aa1ad;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.empty-action {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 21px;
+  padding: 9px 13px;
+  border: 1px solid #e1e4fa;
+  border-radius: 7px;
+  color: #5967d4;
+  background: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.empty-action:hover {
+  background: #f5f6ff;
+}
+
+.empty-action span {
+  font-size: 16px;
+}
+
+.composer-notice {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 15px 17px;
+  margin: -18px 0 25px;
+  border: 1px solid #dfe3fa;
+  border-radius: 9px;
+  background: #f5f6ff;
+}
+
+.composer-notice strong {
+  color: #454f9d;
+  font-size: 12px;
+}
+
+.composer-notice p {
+  margin: 5px 0 0;
+  color: #777f9e;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.close-button {
+  border: 0;
+  color: #8189b8;
+  background: transparent;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.content-footer {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 15px;
+  border-top: 1px solid #e9ebef;
+  color: #a5abb5;
+  font-size: 10px;
+}
+
+@media (max-width: 760px) {
+  .sidebar {
+    width: 68px;
+    min-width: 68px;
+    padding: 20px 10px;
+  }
+
+  .brand {
+    justify-content: center;
+    padding: 0;
+  }
+
+  .brand > span,
+  .sidebar-label,
+  .new-task-button:not(:has(.plus-icon)),
+  .shortcut,
+  .nav-item > span:not(.nav-icon),
+  .profile-info,
+  .profile-menu {
+    display: none;
+  }
+
+  .new-task-button {
+    justify-content: center;
+    padding: 0;
+    font-size: 0;
+  }
+
+  .new-task-button .plus-icon {
+    font-size: 20px;
+  }
+
+  .nav-item {
+    justify-content: center;
+    padding: 0;
+  }
+
+  .profile {
+    justify-content: center;
+    padding: 0;
+  }
+
+  .topbar {
+    padding: 0 18px;
+  }
+
+  .content-area {
+    padding: 30px 20px 18px;
+  }
+
+  .page-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    margin-bottom: 28px;
+  }
+
+  .content-footer {
+    gap: 10px;
+    font-size: 9px;
+  }
+}
+
+
+/* Форма создания задачи */
+
+.task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px;
+  margin: -18px 0 28px;
+  border: 1px solid #e5e7f5;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 5px 18px #252b3608;
+}
+
+.form-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #343b48;
+  font-size: 14px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  color: #687080;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.form-field input,
+.form-field textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #e2e5ec;
+  border-radius: 7px;
+  outline: none;
+  color: #343b48;
+  background: #fff;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  border-color: #8993e8;
+  box-shadow: 0 0 0 3px #5967dc12;
+}
+
+.form-field textarea {
+  resize: vertical;
+  min-height: 70px;
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+  color: #b0b5bf;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 9px;
+  margin-top: 2px;
+}
+
+.secondary-button {
+  min-height: 39px;
+  padding: 0 14px;
+  border: 1px solid #e2e5ec;
+  border-radius: 7px;
+  color: #687080;
+  background: #fff;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.secondary-button:hover {
+  background: #f7f8fa;
+}
+
+.primary-button:disabled,
+.secondary-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Ошибки и состояния загрузки */
+
+.error-message {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  margin: -18px 0 24px;
+  border: 1px solid #f1d4d4;
+  border-radius: 8px;
+  color: #a33e3e;
+  background: #fff6f6;
+  font-size: 12px;
+}
+
+.list-message {
+  display: grid;
+  flex: 1;
+  min-height: 250px;
+  place-items: center;
+  color: #9299a6;
+  font-size: 13px;
+}
+
+/* Карточки задач */
+
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 17px 0;
+}
+
+.task-card {
+  display: flex;
+  align-items: center;
+  padding: 17px 18px;
+  border: 1px solid #e9ebf0;
+  border-radius: 9px;
+  background: #fff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.task-card:hover {
+  border-color: #d9ddf4;
+  box-shadow: 0 3px 12px #252b3608;
+}
+
+.task-card-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.task-card-title {
+  overflow-wrap: anywhere;
+  color: #343b48;
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.task-card-description {
+  margin: 7px 0 0;
+  color: #8d95a3;
+  font-size: 11px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.task-card-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 11px;
+}
+
+.task-status {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 8px;
+  border-radius: 5px;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.task-status.pending {
+  color: #8a6a2c;
+  background: #fff5df;
+}
+
+.task-status.in_progress {
+  color: #4f65b4;
+  background: #edf0ff;
+}
+
+.task-status.completed {
+  color: #318565;
+  background: #e8f7f0;
+}
+
+.task-due-date {
+  color: #9ba2ae;
+  font-size: 10px;
+}
+
+@media (max-width: 760px) {
+  .task-form {
+    padding: 15px;
+  }
+
+  .form-actions {
+    flex-wrap: wrap;
+  }
+}
+
+
+.task-card-actions {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 7px;
+  margin-left: 16px;
+}
+
+.task-action-button {
+  padding: 7px 10px;
+  border: 1px solid #e5e7ef;
+  border-radius: 6px;
+  color: #687080;
+  background: #fff;
+  font-size: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.task-action-button:hover {
+  border-color: #cdd2f4;
+  color: #5967d4;
+  background: #f5f6ff;
+}
+
+.task-action-button.delete {
+  color: #bd5a5a;
+}
+
+.task-action-button.delete:hover {
+  border-color: #f0cccc;
+  background: #fff5f5;
+}
+
+@media (max-width: 760px) {
+  .task-card {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 13px;
+  }
+
+  .task-card-actions {
+    margin-left: 0;
+  }
+}
+.task-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 16px 0;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  max-width: 390px;
+  min-width: 150px;
+  height: 37px;
+  padding: 0 11px;
+  border: 1px solid #e4e7ed;
+  border-radius: 7px;
+  background: #fff;
+}
+
+.search-box:focus-within {
+  border-color: #8993e8;
+  box-shadow: 0 0 0 3px #5967dc12;
+}
+
+.search-icon {
+  margin-right: 8px;
+  color: #9ba2af;
+  font-size: 19px;
+}
+
+.search-box input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: none;
+  color: #343b48;
+  background: transparent;
+  font: inherit;
+  font-size: 11px;
+}
+
+.search-box input::placeholder {
+  color: #aab0bb;
+}
+
+.clear-search {
+  border: 0;
+  color: #9299a6;
+  background: transparent;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.sort-control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #9299a6;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.sort-control select,
+.status-control select {
+  padding: 7px 9px;
+  border: 1px solid #e5e7ed;
+  border-radius: 6px;
+  outline: none;
+  color: #626b7a;
+  background: #fff;
+  font: inherit;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.sort-control select:focus,
+.status-control select:focus {
+  border-color: #8993e8;
+}
+
+/* Управление статусом */
+
+.status-control {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  color: #9299a6;
+  font-size: 10px;
+}
+
+.status-control select:disabled {
+  opacity: 0.55;
+  cursor: wait;
+}
+
+@media (max-width: 760px) {
+  .task-controls {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .search-box {
+    max-width: none;
+    width: 100%;
+  }
+
+  .sort-control {
+    justify-content: space-between;
+  }
+}
